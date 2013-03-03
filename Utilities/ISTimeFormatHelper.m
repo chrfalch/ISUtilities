@@ -72,7 +72,7 @@
 }
 
 // Returns the time as seconds
-+(NSDate*) getTimeFromSeconds:(int)seconds
++(NSDate*) dateTimeFromSeconds:(int)seconds
 {
     // Find current year
     NSDateComponents *dateComps = [[ISTimeFormatHelper sharedCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[NSDate date]];    
@@ -84,26 +84,17 @@
     return [[ISTimeFormatHelper sharedCalendar] dateFromComponents:dateComps];    
 }
 
-+(NSString*) getMonthNameFromNumber:(NSString*)monthNumberAsString
++(NSString*) monthNameFromMonthNumber:(int)month
 {
-    NSScanner* scanner = [NSScanner scannerWithString:monthNumberAsString];
-    int valueToGet;
-    if([scanner scanInt:&valueToGet] == YES)
-    {
-        NSString* monthName = [[[ISTimeFormatHelper sharedDateFormatter] monthSymbols] objectAtIndex:(valueToGet-1)];
-        
-        // find and capitalize month name
-        monthName = [monthName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[monthName substringToIndex:1] uppercaseString]];
-        
-        return monthName;
-    }        
-    else
-    {
-        return @"";
-    }
+    NSString* monthName = [[[ISTimeFormatHelper sharedDateFormatter] monthSymbols] objectAtIndex:(month-1)];
+    
+    // find and capitalize month name
+    monthName = [monthName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[monthName substringToIndex:1] uppercaseString]];
+    
+    return monthName;
 }
 
-+(NSString*) getShortDayName:(NSDate*)t
++(NSString*) shortDayNameFromDate:(NSDate*)t
 {
     if(t)
     {
@@ -119,7 +110,7 @@
     }
 }
 
-+(NSString*) getDateAsDay:(NSDate *)t
++(NSString*) dayNameFromDate:(NSDate *)t
 {
     [[ISTimeFormatHelper sharedDateFormatter] setDateStyle:NSDateFormatterFullStyle];
     
@@ -130,13 +121,13 @@
 
 }
 
-+(NSString*) getYearAsString:(NSDate*)t
++(NSString*) yearStringFromDate:(NSDate*)t
 {
     NSDateComponents *dateComps = [[ISTimeFormatHelper sharedCalendar] components:NSYearCalendarUnit fromDate:t];
     return [NSString stringWithFormat:@"%d", [dateComps year]];
 }
 
-+(NSString*) getShortMonthName:(NSDate*)t
++(NSString*) shortMonthNameFromDate:(NSDate*)t
 {
     if(t)
     {
@@ -153,7 +144,7 @@
 }
 
 // Returns a date without time as a string
-+(NSString*) getDateAsFilenameString:(NSDate*)t
++(NSString*) filenameStringFromDate:(NSDate*)t
 {
     if(t)
     {
@@ -170,7 +161,7 @@
 }
 
 // Returns a date without time as a string 
-+(NSString*) getReallyShortDateAsString:(NSDate*)t
++(NSString*) reallyShortStringFromDate:(NSDate*)t
 {
     if(t)
     {
@@ -187,7 +178,7 @@
 }
 
 // Returns a date without time as a string 
-+(NSString*) getShortDateAsString:(NSDate*)t
++(NSString*) dateStringFromDate:(NSDate*)t
 {
     if(t)
     {
@@ -204,7 +195,7 @@
 }
 
 // Returns the time part of the date
-+(NSString*) getTimeAsString:(NSDate*)t
++(NSString*) timeStringFromDate:(NSDate*)t
 {
     if(!t)
         return @"00:00";
@@ -246,15 +237,8 @@
     return calendar;
 }
 
-// Returns the current date/time
-+(NSDate*) getNow
-{
-    return [NSDate date];
-
-}
-
 // Returns the date for the monday in the week the date falls into
-+(NSDate*) getFirstDateInWeek:(NSDate*)date
++(NSDate*) dateForFirstDayInWeekFromDate:(NSDate*)date
 {
     NSCalendar *gregorian = [ISTimeFormatHelper sharedCalendar];
     

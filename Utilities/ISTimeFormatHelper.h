@@ -23,34 +23,34 @@
 +(BOOL) dateIsInWeekend:(NSDate*)date;
 
 // Returns the short day name for the date
-+(NSString*) getShortDayName:(NSDate*)t;
++(NSString*) shortDayNameFromDate:(NSDate*)t;
 
 // Returns the day name as used in section headers
-+(NSString*) getDateAsDay:(NSDate*)t;
++(NSString*) dayNameFromDate:(NSDate*)t;
 
 // Returns the year for the given date as a string
-+(NSString*) getYearAsString:(NSDate*)t;
++(NSString*) yearStringFromDate:(NSDate*)t;
 
 // Returns the short month name for the date
-+(NSString*) getShortMonthName:(NSDate*)t;
++(NSString*) shortMonthNameFromDate:(NSDate*)t;
 
 // Returns the time as seconds
-+(NSDate*) getTimeFromSeconds:(int)seconds;
++(NSDate*) dateTimeFromSeconds:(int)seconds;
 
 // Returns a date without time as a string 
-+(NSString*) getReallyShortDateAsString:(NSDate*)t;
++(NSString*) reallyShortStringFromDate:(NSDate*)t;
 
 // Returns the date as a filename-ready string
-+(NSString*) getDateAsFilenameString:(NSDate*)t;
++(NSString*) filenameStringFromDate:(NSDate*)t;
 
 // Returns a date without time as a string 
-+(NSString*) getShortDateAsString:(NSDate*)t;
++(NSString*) dateStringFromDate:(NSDate*)t;
 
 // Returns the time part of the date
-+(NSString*) getTimeAsString:(NSDate*)t;
++(NSString*) timeStringFromDate:(NSDate*)t;
 
 // Returns the name of a given month
-+(NSString*) getMonthNameFromNumber:(NSString*)monthNumberAsString;
++(NSString*) monthNameFromMonthNumber:(int)month;
 
 // return the shared NSDateFormatter instance
 + (NSDateFormatter*)sharedDateFormatter;
@@ -59,9 +59,6 @@
 + (NSCalendar*)sharedCalendar;
 
 // Returns the date for the monday in the week the date falls into
-+(NSDate*) getFirstDateInWeek:(NSDate*)date;
-
-// Returns the current date/time
-+(NSDate*) getNow;
++(NSDate*) dateForFirstDayInWeekFromDate:(NSDate*)date;
 
 @end
