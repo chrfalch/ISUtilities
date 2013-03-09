@@ -103,7 +103,7 @@
 {
     // First, check if we have a nil value. Just return information on what to di
     if(!placemark)
-        return NSLocalizedString(@"LblNoLocationSelected", nil);
+        return NSLocalizedString(@"No location selected", @"Placemarkhelper - no streetname was found");
     
     // If we have address information
     if([self placemarkHasAddress:placemark])
@@ -140,16 +140,16 @@
     }
     else if([self placemarkHasCoordinate:placemark])
     {
-        NSString *latString = (placemark.coordinate.latitude < 0) ? NSLocalizedString(@"South", nil) : NSLocalizedString(@"North", nil);
+        NSString *latString = (placemark.coordinate.latitude < 0) ? NSLocalizedString(@"South", @"Placemark helper - direction") : NSLocalizedString(@"North", @"Placemark helper - direction");
         
-        NSString *lonString = (placemark.coordinate.longitude < 0) ? NSLocalizedString(@"West", nil) : NSLocalizedString(@"East", nil);
+        NSString *lonString = (placemark.coordinate.longitude < 0) ? NSLocalizedString(@"West", @"Placemark helper - direction") : NSLocalizedString(@"East", @"Placemark helper - direction");
         
-        return [NSString stringWithFormat:NSLocalizedString(@"LatLongFormat", nil), fabs(placemark.coordinate.latitude), latString, fabs(placemark.coordinate.longitude), lonString];
+        return [NSString stringWithFormat:@"%.4f° %@, %.4f° %@", fabs(placemark.coordinate.latitude), latString, fabs(placemark.coordinate.longitude), lonString];
     }
     else
     {
         
-        return NSLocalizedString(@"LblNoLocationSelected", nil);
+        return NSLocalizedString(@"No location selected", @"Placemarkhelper - no streetname was found");
     }
     
 }
@@ -166,9 +166,9 @@
     if(!placemark)
     {
         if(firstLine)
-            return NSLocalizedString(@"LblNoLocationSelected", nil);
+            return NSLocalizedString(@"No location selected", @"Placemarkhelper - no location was found");
         else
-            return NSLocalizedString(@"LblNoLocationSelectedClickToSet", nil);
+            return NSLocalizedString(@"Click to select location", @"Placemarkhelper - click to select location text");
     }
     
     // If we have address information
@@ -194,12 +194,12 @@
     }
     else if([self placemarkHasCoordinate:placemark])
     {
-        NSString *latString = (placemark.coordinate.latitude < 0) ? NSLocalizedString(@"South", nil) : NSLocalizedString(@"North", nil);
+        NSString *latString = (placemark.coordinate.latitude < 0) ? NSLocalizedString(@"South", @"Placemark helper - direction") : NSLocalizedString(@"North", @"Placemark helper - direction");
         
-        NSString *lonString = (placemark.coordinate.longitude < 0) ? NSLocalizedString(@"West", nil) : NSLocalizedString(@"East", nil);
+        NSString *lonString = (placemark.coordinate.longitude < 0) ? NSLocalizedString(@"West", @"Placemark helper - direction") : NSLocalizedString(@"East", @"Placemark helper - direction");
         
         if(firstLine)
-            return [NSString stringWithFormat:NSLocalizedString(@"LatLongFormat", nil), fabs(placemark.coordinate.latitude), latString, fabs(placemark.coordinate.longitude), lonString];
+            return [NSString stringWithFormat:@"%.4f° %@, %.4f° %@", fabs(placemark.coordinate.latitude), latString, fabs(placemark.coordinate.longitude), lonString];
         else
             return @"";
         
@@ -208,9 +208,9 @@
     {
         
         if(firstLine)
-            return NSLocalizedString(@"LblNoLocationSelected", nil);
+            return NSLocalizedString(@"No location selected", @"Placemarkhelper - no location was found");
         else
-            return NSLocalizedString(@"LblNoLocationSelectedClickToSet", nil);
+            return NSLocalizedString(@"Click to select location", @"Placemarkhelper - click to select location text");
     }
 }
 
