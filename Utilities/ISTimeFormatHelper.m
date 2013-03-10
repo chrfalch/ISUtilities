@@ -94,6 +94,12 @@
     return monthName;
 }
 
++(int) dayNumberFromDate:(NSDate*)t
+{
+    NSDateComponents *dateComps = [[ISTimeFormatHelper sharedCalendar] components:NSDayCalendarUnit fromDate:t];
+    return dateComps.day;
+}
+
 +(NSString*) shortDayNameFromDate:(NSDate*)t
 {
     if(t)

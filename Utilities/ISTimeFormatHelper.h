@@ -22,6 +22,9 @@
 // Returns true if the date falls into a weekend
 +(BOOL) dateIsInWeekend:(NSDate*)date;
 
+// Returns the day number for a date
++(int) dayNumberFromDate:(NSDate*)t;
+
 // Returns the short day name for the date
 +(NSString*) shortDayNameFromDate:(NSDate*)t;
 
