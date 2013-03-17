@@ -11,6 +11,9 @@
 
 @interface ISPlacemarkHelper : NSObject
 
+// Returns the distance in meters between the two placemarks
++(NSInteger) distanceBetweenPlacemark:(MKPlacemark*)placemark1 andPlacemark:(MKPlacemark*)placemark2;
+
 // Gets a two-line address separated with comma
 +(NSString*) addressFromPlacemark:(MKPlacemark*)placemark;
 
