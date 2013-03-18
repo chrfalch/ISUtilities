@@ -228,11 +228,7 @@
 // Returns the distance in meters between the two placemarks
 +(NSInteger) distanceBetweenPlacemark:(MKPlacemark*)placemark1 andPlacemark:(MKPlacemark*)placemark2
 {
-    CLLocation* loc1 = [[CLLocation alloc] initWithLatitude:placemark1.coordinate.latitude longitude:placemark1.coordinate.longitude];
-    
-    CLLocation* loc2 = [[CLLocation alloc] initWithLatitude:placemark2.coordinate.latitude longitude:placemark2.coordinate.longitude];
-    
-    return [loc2 distanceFromLocation:loc1];
+    return [placemark1.location distanceFromLocation:placemark2.location];
 }
 @end
 
