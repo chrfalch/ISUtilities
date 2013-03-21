@@ -256,4 +256,14 @@
     return [gregorian dateByAddingComponents:componentsToSubtract toDate:date options:0];
 }
 
+// Compares the date part of the two dates
++(BOOL) compareDatePartFromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
+{
+    NSDateComponents* startComps = [[ISTimeFormatHelper sharedCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:fromDate];
+    
+    NSDateComponents* endComps = [[ISTimeFormatHelper sharedCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:toDate];
+    
+    return startComps.year == endComps.year && startComps.month == endComps.month && startComps.day == endComps.day;
+}
+
 @end
