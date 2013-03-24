@@ -11,6 +11,12 @@
 
 @implementation ISTimeFormatHelper
 
+// Returns the number representing the beginning of the day for the date provided
++(NSNumber*) timeStampFromDate:(NSDate*)date
+{
+    return [NSNumber numberWithInt: floor([date timeIntervalSince1970]/86400)*86400];
+}
+
 // Returns the last day in the month in the date
 +(NSDate*) lastDayInMonth:(NSDate*)date
 {

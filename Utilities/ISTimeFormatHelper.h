@@ -64,6 +64,9 @@
 // Returns the date for the monday in the week the date falls into
 +(NSDate*) dateForFirstDayInWeekFromDate:(NSDate*)date;
 
+// Returns the number representing the beginning of the day for the date provided
++(NSNumber*) timeStampFromDate:(NSDate*)date;
+
 // Compares the date part of the two dates
 +(BOOL) compareDatePartFromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 
