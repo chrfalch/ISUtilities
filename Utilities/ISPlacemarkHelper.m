@@ -168,7 +168,7 @@
         if(firstLine)
             return NSLocalizedString(@"No location selected", @"Placemarkhelper - no location was found");
         else
-            return NSLocalizedString(@"Click to select location", @"Placemarkhelper - click to select location text");
+            return @"";
     }
     
     // If we have address information
@@ -210,7 +210,7 @@
         if(firstLine)
             return NSLocalizedString(@"No location selected", @"Placemarkhelper - no location was found");
         else
-            return NSLocalizedString(@"Click to select location", @"Placemarkhelper - click to select location text");
+            return @"";
     }
 }
 
